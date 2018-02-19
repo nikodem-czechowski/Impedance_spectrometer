@@ -38,91 +38,6 @@ PrefsVaultGUID=
 PrefsRevisionGUID=
 
 [Document1]
-DocumentPath=..\Power.SchDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=2
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=IQQGJRMV
-
-[Document2]
-DocumentPath=..\Front-end.SchDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=XTWCMPMQ
-
-[Document3]
-DocumentPath=..\Back-end.SchDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=0
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=IHMOHSDP
-
-[Document4]
-DocumentPath=..\Schlib1.SchLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=GPDBHDTM
-
-[Document5]
-DocumentPath=..\PcbLib1.PcbLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=TBVFMQTY
-
-[Document6]
 DocumentPath=..\..\..\..\..\Public\Documents\Altium\AD17\Library\Microchip\Microchip Linear Devices.IntLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -139,7 +54,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document7]
+[Document2]
 DocumentPath=..\..\..\..\..\Public\Documents\Altium\AD17\Library\Maxim\Maxim Operational Amplifier.IntLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -156,24 +71,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document8]
-DocumentPath=..\Impedance spectrometer.PcbDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=AKFMOPHQ
-
-[Document9]
+[Document3]
 DocumentPath=..\..\..\..\..\Public\Documents\Altium\AD17\Library\Texas Instruments\TI Interface Darlington Driver.IntLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -190,7 +88,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document10]
+[Document4]
 DocumentPath=..\..\..\..\..\Public\Documents\Altium\AD17\Library\ST Microelectronics\ST Microcontroller 32-Bit STM32.IntLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -207,7 +105,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document11]
+[Document5]
 DocumentPath=..\..\..\..\..\Public\Documents\Altium\AD17\Library\ST Microelectronics\ST Microcontroller 32-Bit ARM.IntLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -224,7 +122,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document12]
+[Document6]
 DocumentPath=..\..\..\..\..\Public\Documents\Altium\AD17\Library\Component Library 3.0\lib v2.0 Semiconductors.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -241,7 +139,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document13]
+[Document7]
 DocumentPath=..\..\..\..\..\Public\Documents\Altium\AD17\Library\Component Library 3.0\Other.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -258,7 +156,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document14]
+[Document8]
 DocumentPath=..\..\..\..\..\Public\Documents\Altium\AD17\Library\Component Library 3.0\Connectors.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -275,7 +173,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document15]
+[Document9]
 DocumentPath=..\..\..\..\..\Public\Documents\Altium\AD17\Library\Component Library 3.0\Diody.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -292,7 +190,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document16]
+[Document10]
 DocumentPath=..\..\..\..\..\Public\Documents\Altium\AD17\Library\Goldpin\Pin Headers TH.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -309,7 +207,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document17]
+[Document11]
 DocumentPath=..\..\..\..\..\Public\Documents\Altium\AD17\Library\Component Library 3.0\lib v2.0 Passive.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -326,7 +224,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document18]
+[Document12]
 DocumentPath=..\..\..\..\..\Public\Documents\Altium\AD17\Library\Component Library 3.0\lib v2.0 old .PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -343,7 +241,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document19]
+[Document13]
 DocumentPath=..\..\..\..\..\Public\Documents\Altium\AD17\Library\ON Semiconductor\ON Semiconductor Footprints.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -360,7 +258,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document20]
+[Document14]
 DocumentPath=..\..\..\..\..\Public\Documents\Altium\AD17\Library\Burr-Brown\Burr-Brown Footprints.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -377,7 +275,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document21]
+[Document15]
 DocumentPath=..\..\..\..\..\Public\Documents\Altium\AD17\Library\ON Semiconductor\ON Semi Power Mgt Voltage Detector.IntLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -394,7 +292,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document22]
+[Document16]
 DocumentPath=..\..\..\..\..\Public\Documents\Altium\AD17\Library\ON Semiconductor\ON Semi Power Mgt Voltage Reference.IntLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -411,7 +309,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document23]
+[Document17]
 DocumentPath=..\..\..\..\..\Public\Documents\Altium\AD17\Library\ON Semiconductor\ON Semi Power Mgt Voltage Regulator.IntLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -428,8 +326,25 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document24]
-DocumentPath=..\Back-end_2.SchDoc
+[Document18]
+DocumentPath=Back-end.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=IHMOHSDP
+
+[Document19]
+DocumentPath=Back-end_2.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -444,6 +359,112 @@ ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=JAJKMRNR
+
+[Document20]
+DocumentPath=Front-end.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=XTWCMPMQ
+
+[Document21]
+DocumentPath=Impedance spectrometer.PcbDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=AKFMOPHQ
+
+[Document22]
+DocumentPath=PCB_Manufacture.OutJob
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[Document23]
+DocumentPath=PcbLib1.PcbLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[Document24]
+DocumentPath=Power.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=IQQGJRMV
+
+[Document25]
+DocumentPath=Schlib1.SchLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[GeneratedDocument1]
+DocumentPath=Project Outputs for Impedance spectrometer\Design Rule Check - Impedance spectrometer.html
+DItemRevisionGUID=
 
 [Configuration1]
 Name=Sources
