@@ -62,10 +62,12 @@
 #define D8_GPIO_Port GPIOC
 #define D9_Pin GPIO_PIN_15
 #define D9_GPIO_Port GPIOC
-#define TRIGGER1_Pin GPIO_PIN_0
-#define TRIGGER1_GPIO_Port GPIOA
-#define TRIGGER2_Pin GPIO_PIN_1
-#define TRIGGER2_GPIO_Port GPIOA
+#define TRIGGER_1_Pin GPIO_PIN_0
+#define TRIGGER_1_GPIO_Port GPIOA
+#define TRIGGER_1_EXTI_IRQn EXTI0_IRQn
+#define TRIGGER_2_Pin GPIO_PIN_1
+#define TRIGGER_2_GPIO_Port GPIOA
+#define TRIGGER_2_EXTI_IRQn EXTI1_IRQn
 #define REL3_Pin GPIO_PIN_12
 #define REL3_GPIO_Port GPIOB
 #define REL2_Pin GPIO_PIN_13

@@ -66,8 +66,11 @@
 
 // UART/USB commands definitions
 
-#define SET_NUMBER_OF_MEASUREMENTS "set_number_of_measurements"
-
+#define SET_NUMBER_OF_MEASUREMENTS 	"set_number_of_measurements"
+#define SET_NUMBER_OF_POINTS 				"set_number_of_points"
+#define SET_INCREMENT 							"set_increment"
+#define GET_TEMP										"get_temp"
+#define SET_START_FREQUENCY 				"set_start_frequency"
 
 
 /* USER CODE END Includes */
@@ -90,6 +93,7 @@ static void MX_GPIO_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_I2C1_Init(void);
 static void MX_TIM1_Init(void);
+static void MX_NVIC_Init(void);
 
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
@@ -130,6 +134,9 @@ int main(void)
   MX_I2C1_Init();
   MX_TIM1_Init();
 
+  /* Initialize interrupts */
+  MX_NVIC_Init();
+
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
@@ -148,7 +155,7 @@ int main(void)
 					{
 						measurements_to_go = atoi(USB_parameter);
 					}
-				else if (strcmp(USB_command, "set_number_of_points") == 0)
+				else if (strcmp(USB_command, SET_NUMBER_OF_POINTS) == 0)
 					{
 						number_of_points = atoi(USB_parameter);
 						if (number_of_points > 511 ) // If > 511 set 511
@@ -172,13 +179,13 @@ int main(void)
 						frequency = malloc(number_of_points * sizeof(uint16_t));
 						AD5933_set_steps(&hi2c1, AD5933_address, number_of_points);
 					}
-				else if (strcmp(USB_command, "set_increment") == 0)
+				else if (strcmp(USB_command, SET_INCREMENT) == 0)
 					{
 						frequency_increment = atoi(USB_parameter);
 						AD5933_set_increment(&hi2c1, AD5933_address, frequency_increment);
 						frequency_set = 0;
 					}
-				else if (strcmp(USB_command, "get_temp") == 0)
+				else if (strcmp(USB_command, GET_TEMP) == 0)
 					{
 						if (atoi(USB_parameter) == 1) 
 							{
@@ -202,7 +209,7 @@ int main(void)
 							}
 							
 					}
-				else if (strcmp(USB_command, "set_start_frequency") == 0)
+				else if (strcmp(USB_command, SET_START_FREQUENCY) == 0)
 					{
 						start_frequency = atoi(USB_parameter);
 						AD5933_set_start(&hi2c1, AD5933_address, start_frequency);
@@ -329,6 +336,33 @@ void SystemClock_Config(void)
   HAL_NVIC_SetPriority(SysTick_IRQn, 1, 0);
 }
 
+/** NVIC Configuration
+*/
+static void MX_NVIC_Init(void)
+{
+  /* EXTI0_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(EXTI0_IRQn, 1, 0);
+  HAL_NVIC_EnableIRQ(EXTI0_IRQn);
+  /* EXTI1_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(EXTI1_IRQn, 1, 0);
+  HAL_NVIC_EnableIRQ(EXTI1_IRQn);
+  /* I2C1_EV_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(I2C1_EV_IRQn, 1, 0);
+  HAL_NVIC_EnableIRQ(I2C1_EV_IRQn);
+  /* I2C1_ER_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(I2C1_ER_IRQn, 1, 0);
+  HAL_NVIC_EnableIRQ(I2C1_ER_IRQn);
+  /* USB_HP_CAN1_TX_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(USB_HP_CAN1_TX_IRQn, 3, 0);
+  HAL_NVIC_EnableIRQ(USB_HP_CAN1_TX_IRQn);
+  /* USB_LP_CAN1_RX0_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(USB_LP_CAN1_RX0_IRQn, 3, 0);
+  HAL_NVIC_EnableIRQ(USB_LP_CAN1_RX0_IRQn);
+  /* ADC1_2_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(ADC1_2_IRQn, 4, 0);
+  HAL_NVIC_EnableIRQ(ADC1_2_IRQn);
+}
+
 /* ADC1 init function */
 static void MX_ADC1_Init(void)
 {
@@ -449,8 +483,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : TRIGGER1_Pin TRIGGER2_Pin */
-  GPIO_InitStruct.Pin = TRIGGER1_Pin|TRIGGER2_Pin;
+  /*Configure GPIO pins : TRIGGER_1_Pin TRIGGER_2_Pin */
+  GPIO_InitStruct.Pin = TRIGGER_1_Pin|TRIGGER_2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
