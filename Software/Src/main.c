@@ -68,9 +68,15 @@
 
 #define SET_NUMBER_OF_MEASUREMENTS 	"set_number_of_measurements"
 #define SET_NUMBER_OF_POINTS 				"set_number_of_points"
-#define SET_INCREMENT 							"set_increment"
-#define GET_TEMP										"get_temp"
-#define SET_START_FREQUENCY 				"set_start_frequency"
+#define SET_INCREMENT "set_increment"
+#define GET_TEMP "get_temp"
+#define SET_START_FREQUENCY "set_start_frequency"
+#define ARM_TRIGGER "arm_trigger"
+#define MEASURE "measure"
+#define TEST "test"
+
+// UART/USB return texts - TBA
+
 
 
 /* USER CODE END Includes */
@@ -93,7 +99,6 @@ static void MX_GPIO_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_I2C1_Init(void);
 static void MX_TIM1_Init(void);
-static void MX_NVIC_Init(void);
 
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
@@ -134,17 +139,18 @@ int main(void)
   MX_I2C1_Init();
   MX_TIM1_Init();
 
-  /* Initialize interrupts */
-  MX_NVIC_Init();
-
   /* USER CODE BEGIN 2 */
+	
+	AD5933_address = 100;
+	DS1085_address = 100;
+	AD5933_init(&hi2c1, AD5933_address);
+	DS1085_init(&hi2c1, DS1085_address);
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-	AD5933_address = 100;
-  while (1)
+	while (1)
   {
 		//HAL_GPIO_WritePin(D8_GPIO_Port, D8_Pin, GPIO_PIN_SET);
 		//HAL_Delay(250);
@@ -196,7 +202,8 @@ int main(void)
 							}
 						else if (atoi(USB_parameter) == 2) 
 							{
-								uint8_t temperature = AD5933_get_temperature(&hi2c1, AD5933_address);
+								//uint8_t temperature = AD5933_get_temperature(&hi2c1, AD5933_address);
+								uint8_t temperature = 25;
 								char* to_send;
 								uint16_t length = sprintf(to_send, "Temperature of AD5933 is equal to %d \r\n", temperature);
 								CDC_Transmit_FS((uint8_t *)to_send, length);
@@ -215,7 +222,7 @@ int main(void)
 						AD5933_set_start(&hi2c1, AD5933_address, start_frequency);
 						frequency_set = 0;
 					}
-				else if (strcmp(USB_command, "arm_trigger") == 0) 
+				else if (strcmp(USB_command, ARM_TRIGGER) == 0) 
 					{
 						if (atoi(USB_parameter) == 1) 
 							{
@@ -242,7 +249,7 @@ int main(void)
 									CDC_Transmit_FS((uint8_t *)to_send, length);
 								}		
 					}
-				else if (strcmp(USB_command, "measure") == 0)
+				else if (strcmp(USB_command, MEASURE) == 0)
 					{
 							for (int i = 0; i < number_of_points; i++)
 								{
@@ -252,7 +259,7 @@ int main(void)
 							// MEASURE
 							// SEND DATA
 						}
-				else if (strcmp(USB_command, "test") == 0)
+				else if (strcmp(USB_command, TEST) == 0)
 					{
 						char* to_send;
 						uint16_t length = sprintf(to_send, "TEST  \r\n");
@@ -334,33 +341,6 @@ void SystemClock_Config(void)
 
   /* SysTick_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(SysTick_IRQn, 1, 0);
-}
-
-/** NVIC Configuration
-*/
-static void MX_NVIC_Init(void)
-{
-  /* EXTI0_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(EXTI0_IRQn, 1, 0);
-  HAL_NVIC_EnableIRQ(EXTI0_IRQn);
-  /* EXTI1_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(EXTI1_IRQn, 1, 0);
-  HAL_NVIC_EnableIRQ(EXTI1_IRQn);
-  /* I2C1_EV_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(I2C1_EV_IRQn, 1, 0);
-  HAL_NVIC_EnableIRQ(I2C1_EV_IRQn);
-  /* I2C1_ER_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(I2C1_ER_IRQn, 1, 0);
-  HAL_NVIC_EnableIRQ(I2C1_ER_IRQn);
-  /* USB_HP_CAN1_TX_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(USB_HP_CAN1_TX_IRQn, 3, 0);
-  HAL_NVIC_EnableIRQ(USB_HP_CAN1_TX_IRQn);
-  /* USB_LP_CAN1_RX0_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(USB_LP_CAN1_RX0_IRQn, 3, 0);
-  HAL_NVIC_EnableIRQ(USB_LP_CAN1_RX0_IRQn);
-  /* ADC1_2_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(ADC1_2_IRQn, 4, 0);
-  HAL_NVIC_EnableIRQ(ADC1_2_IRQn);
 }
 
 /* ADC1 init function */
@@ -483,8 +463,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : TRIGGER_1_Pin TRIGGER_2_Pin */
-  GPIO_InitStruct.Pin = TRIGGER_1_Pin|TRIGGER_2_Pin;
+  /*Configure GPIO pins : TRIGGER1_Pin TRIGGER2_Pin */
+  GPIO_InitStruct.Pin = TRIGGER1_Pin|TRIGGER2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
