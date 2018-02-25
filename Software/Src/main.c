@@ -145,9 +145,10 @@ int main(void)
 
   /* USER CODE BEGIN 2 */
 	
-	AD5933_address = 100;
+	AD5933_address = 0x0D-1;
 	DS1085_address = 100;
-	AD5933_init(&hi2c1, AD5933_address);
+	uint8_t AD5933_return;
+	AD5933_return = AD5933_init(&hi2c1, AD5933_address);
 	DS1085_init(&hi2c1, DS1085_address);
 
   /* USER CODE END 2 */
@@ -206,8 +207,8 @@ int main(void)
 							}
 						else if (atoi(USB_parameter) == 2) 
 							{
-								//uint8_t temperature = AD5933_get_temperature(&hi2c1, AD5933_address);
-								uint8_t temperature = 25;
+								uint8_t temperature = AD5933_get_temperature(&hi2c1, AD5933_address);
+								//uint8_t temperature = 25;
 								char* to_send;
 								uint16_t length = sprintf(to_send, "Temperature of AD5933 is equal to %d \r\n", temperature);
 								CDC_Transmit_FS((uint8_t *)to_send, length);
@@ -266,7 +267,7 @@ int main(void)
 				else if (strcmp(USB_command, TEST) == 0)
 					{
 						char* to_send;
-						uint16_t length = sprintf(to_send, "TEST  \r\n");
+						uint16_t length = sprintf(to_send, "AD5933 returned %d \r\n", AD5933_return);
 						CDC_Transmit_FS((uint8_t *)to_send, length);
 						HAL_GPIO_TogglePin(D7_GPIO_Port, D7_Pin);
 					}

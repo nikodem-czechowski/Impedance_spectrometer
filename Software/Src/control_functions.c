@@ -7,7 +7,15 @@
 
 uint8_t AD5933_init (I2C_HandleTypeDef* handle,	uint16_t address)
 	{
-		return 0;
+		uint8_t data[2];
+		data[0] = 0x81;
+		data[1] = 0x08;
+		uint8_t receive[2];
+		HAL_I2C_Master_Transmit(handle, address, data, 2, 1000);
+		HAL_Delay(1);
+		data[0] = 0x8f;
+		if (HAL_I2C_Master_Receive(handle, address, receive, 1, 1000) != HAL_OK) receive[0] = 0xff;
+		return receive[0];
 	}
 	
 
@@ -124,8 +132,16 @@ uint8_t AD5933_enter_sweep (I2C_HandleTypeDef* handle,	uint16_t address)
 
 uint8_t AD5933_get_temperature (I2C_HandleTypeDef* handle,	uint16_t address)
 	{
+		uint8_t data[2];
+		data[0] = 0x80;
+		data[1] = 0x90;
+		HAL_I2C_Master_Transmit(handle, address, data, 2, 1000);
+		HAL_Delay(1);
 		
-		return 25;
+		data[0] = 0x92;
+		HAL_I2C_Master_Transmit(handle, address, data, 1, 1000);
+		HAL_I2C_Master_Receive(handle, address, data, 1, 1000);
+		return data[0];
 	}
 	
 
