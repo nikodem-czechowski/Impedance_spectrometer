@@ -21,12 +21,39 @@ uint8_t AD5933_init (I2C_HandleTypeDef* handle,	uint16_t address)
 
 uint8_t DS1085_init (I2C_HandleTypeDef* handle,	uint16_t address)
 	{
+		HAL_Delay(10);
+		HAL_GPIO_WritePin(CLK_CTRL2_GPIO_Port, CLK_CTRL2_Pin, GPIO_PIN_SET);
+		uint8_t data[3];
+		
+		data[0] = 0x01;
+		data[1] = 0xFF;
+		data[2] = 0xFF;
+		HAL_I2C_Master_Transmit(handle, address, data, 3, 1000);
+		//HAL_I2C_Master_Transmit(handle, address, data, 1, 1000);
+		//HAL_I2C_Master_Receive(handle, address, data+1,2, 1000);
+		
+		data[0] = 0x37;
+		
+		HAL_I2C_Master_Transmit(handle, address, data, 1, 1000);
+		HAL_I2C_Master_Receive(handle, address, data+1,2, 1000);
+				
+		data[0] = 0x0E;
+		data[1] = (data[1] >> 3) - 10;
+		//data[2] = 0xfF;
+		HAL_I2C_Master_Transmit(handle, address, data, 2, 1000);
+		HAL_I2C_Master_Transmit(handle, address, data, 1, 1000);
+		HAL_I2C_Master_Receive(handle, address, data+1,1, 1000);		
+		
+		HAL_GPIO_WritePin(CLK_CTRL2_GPIO_Port, CLK_CTRL2_Pin, GPIO_PIN_RESET);
+		HAL_Delay(10);
+		HAL_GPIO_WritePin(CLK_CTRL2_GPIO_Port, CLK_CTRL2_Pin, GPIO_PIN_SET);
 		return 0;
 	}
 
 
 uint8_t AD5933_set_gain (I2C_HandleTypeDef* handle,	uint16_t address, uint16_t gain)
 	{
+			
 		return 0;
 	}
 	

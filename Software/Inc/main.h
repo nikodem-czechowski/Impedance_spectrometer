@@ -76,6 +76,8 @@
 #define REL1_GPIO_Port GPIOB
 #define MCLK_Pin GPIO_PIN_8
 #define MCLK_GPIO_Port GPIOA
+#define CLK_CTRL2_Pin GPIO_PIN_15
+#define CLK_CTRL2_GPIO_Port GPIOA
 #define Reset_Q2_Pin GPIO_PIN_3
 #define Reset_Q2_GPIO_Port GPIOB
 #define Reset_Q1_Pin GPIO_PIN_4

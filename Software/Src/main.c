@@ -145,12 +145,12 @@ int main(void)
 
   /* USER CODE BEGIN 2 */
 	
-	AD5933_address = 0x0D-1;
-	DS1085_address = 100;
+	AD5933_address = 0x0D-1; //Doesn't work.
+	DS1085_address = 0xB0; // Correct
 	uint8_t AD5933_return;
-	AD5933_return = AD5933_init(&hi2c1, AD5933_address);
+	// AD5933_return = AD5933_init(&hi2c1, AD5933_address);
 	DS1085_init(&hi2c1, DS1085_address);
-
+	HAL_GPIO_WritePin(CLK_CTRL1_GPIO_Port, CLK_CTRL1_Pin, GPIO_PIN_RESET);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -489,6 +489,9 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOB, REL3_Pin|REL2_Pin|REL1_Pin|Reset_Q2_Pin 
                           |Reset_Q1_Pin|CLK_CTRL1_Pin, GPIO_PIN_RESET);
 
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(CLK_CTRL2_GPIO_Port, CLK_CTRL2_Pin, GPIO_PIN_RESET);
+
   /*Configure GPIO pins : D7_Pin D8_Pin D9_Pin */
   GPIO_InitStruct.Pin = D7_Pin|D8_Pin|D9_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
@@ -508,6 +511,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : CLK_CTRL2_Pin */
+  GPIO_InitStruct.Pin = CLK_CTRL2_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(CLK_CTRL2_GPIO_Port, &GPIO_InitStruct);
 
 }
 
